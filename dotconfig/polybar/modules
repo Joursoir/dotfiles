@@ -1,0 +1,264 @@
+[module/sep]
+	type = custom/text
+	content = |
+
+	content-background = ${color.background}
+	content-foreground = ${color.background}
+
+[module/pulseaudio]
+	type = internal/pulseaudio
+
+	; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+	; If not, uses default sink
+	sink = alsa_output.usb-C-Media_Electronics_Inc._USB_Audio_Device-00.analog-stereo
+
+	; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+	use-ui-max = false
+
+	; Interval for volume increase/decrease (in percent points)
+	interval = 5
+
+	; Available tags:
+	;   <label-volume> (default)
+	;   <ramp-volume>
+	;   <bar-volume>
+	format-volume = <ramp-volume><label-volume>
+	format-volume-overline = ${color.background}
+	format-volume-underline = ${color.background}
+
+	label-volume = %percentage%%
+	label-volume-background = ${color.background-alt}
+	label-volume-padding = 1
+
+	ramp-volume-0 = 
+	ramp-volume-1 = 
+	ramp-volume-2 = 
+	ramp-volume-3 = 
+	ramp-volume-4 = 
+	ramp-volume-background = ${color.blue}
+	ramp-volume-padding = 1
+
+	; Available tags:
+	;   <label-muted> (default)
+	;   <ramp-volume>
+	;   <bar-volume>
+	format-muted = <label-muted>
+	format-muted-prefix = 
+	format-muted-prefix-background = ${color.red}
+	format-muted-prefix-padding = 1
+	format-muted-overline = ${color.background}
+	format-muted-underline = ${color.background}
+
+	label-muted = "Muted"
+	label-muted-foreground = ${color.foreground}
+	label-muted-background = ${color.background-alt}
+	label-muted-padding = 1
+
+	; Right click
+	click-right = pavucontrol
+
+[module/date]
+	type = internal/date
+
+	; Seconds to sleep between updates
+	interval = 1.0
+
+	; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
+	; NOTE: if you want to use syntax tags here you need to use %%{...}
+	;;date = %Y-%m-%d%
+
+	; Optional time format
+	time = "%I:%M %p"
+
+	; if `date-alt` or `time-alt` is defined, clicking
+	; the module will toggle between formats
+	time-alt = "%a, %d %b %Y"
+
+	; Available tags:
+	;   <label> (default)
+	format = <label>
+	format-prefix = 
+	format-prefix-background = ${color.amber}
+	format-prefix-padding = 1
+	format-overline = ${color.background}
+	format-underline = ${color.background}
+
+	; Available tokens:
+	;   %date%
+	;   %time%
+	; Default: %date%
+	label = %time%
+	label-background = ${color.background-alt}
+	label-padding = 1
+
+[module/network]
+	type = internal/network
+	; Name of the network interface to display. You can get the names of the
+	; interfaces on your machine with `ip link`
+	interface = enp34s0
+
+	; If no interface is specified, polybar can detect an interface of the given type.
+	; If multiple are found, it will prefer running interfaces and otherwise just
+	; use the first one found.
+	; Either 'wired' or 'wireless'
+	; New in version 3.6.0
+	interface-type = wired
+
+	; Seconds to sleep between updates
+	interval = 1.0
+
+	; Accumulate values from all interfaces
+	; when querying for up/downspeed rate
+	accumulate-stats = true
+
+	; Consider an `UNKNOWN` interface state as up.
+	; Some devices have an unknown state, even when they're running
+	unknown-as-up = true
+
+	; Available tags:
+	;   <label-connected> (default)
+	;   <ramp-signal>
+	format-connected = <ramp-signal><label-connected>
+	format-connected-overline = ${color.background}
+	format-connected-underline = ${color.background}
+
+	; Only applies if <ramp-signal> is used
+	ramp-signal-0 = 
+	ramp-signal-background = ${color.yellow}
+	ramp-signal-padding = 1
+
+	; Available tokens:
+	;   %ifname%    [wireless+wired]
+	;   %local_ip%  [wireless+wired]
+	;   %local_ip6% [wireless+wired]
+	;   %essid%     [wireless]
+	;   %signal%    [wireless]
+	;   %upspeed%   [wireless+wired]
+	;   %downspeed% [wireless+wired]
+	;   %linkspeed% [wired]
+	label-connected = "%upspeed% | %downspeed% "
+	label-connected-background = ${color.background-alt}
+	label-connected-padding = 1
+
+	; Available tags:
+	;   <label-disconnected> (default)
+	format-disconnected = <label-disconnected>
+	format-disconnected-prefix = 
+	format-disconnected-prefix-background = ${color.orange}
+	format-disconnected-prefix-padding = 1
+	format-disconnected-overline = ${color.background}
+	format-disconnected-underline = ${color.background}
+
+	; Available tokens:
+	;   %ifname%    [wireless+wired]
+	label-disconnected = "Offline"
+	label-disconnected-background = ${color.background-alt}
+	label-disconnected-padding = 1
+
+[module/keyboard]
+	type = internal/xkeyboard
+
+	; List of indicators to ignore
+	blacklist-0 = num lock
+	blacklist-1 = scroll lock
+
+	; Available tags:
+	;   <label-layout> (default)
+	;   <label-indicator> (default)
+	format = <label-layout><label-indicator>
+	format-prefix = 
+	format-prefix-background = ${color.blue-gray}
+	format-prefix-padding = 1
+	format-overline = ${color.background}
+	format-underline = ${color.background}
+
+	; Available tokens:
+	;   %layout%
+	;   %name%
+	;   %number%
+	label-layout = "%layout%"
+	label-layout-background = ${color.background-alt}
+	label-layout-padding = 1
+
+	; Available tokens:
+	;   %name%
+	label-indicator-on = "%name% "
+	label-indicator-on-background = ${color.background-alt}
+
+[module/title]
+	type = internal/xwindow
+
+	; Available tags:
+	;   <label> (default)
+	format = <label>
+	format-prefix = 
+	format-padding = 1
+	format-foreground = ${color.foreground-alt}
+
+	; Available tokens:
+	;   %title%
+	; Default: %title%
+	label = " %title%"
+	label-maxlen = 64
+
+	; Used instead of label when there is no window title
+	label-empty = " Desktop"
+
+[module/workspaces]
+	type = internal/xworkspaces
+
+	; Only show workspaces defined on the same output as the bar
+	pin-workspaces = true
+
+	; Create click handler used to focus desktop
+	enable-click = true
+
+	; Create scroll handlers used to cycle desktops
+	enable-scroll = true
+
+	; Available tags:
+	;   <label-monitor>
+	;   <label-state> - gets replaced with <label-(active|urgent|occupied|empty)>
+	format = <label-state>
+	format-overline = ${color.background}
+	format-underline = ${color.background}
+
+	; Available tokens:
+	;   %name%
+	label-monitor = %name%
+
+	; Available tokens:
+	;   %name%
+	;   %icon%
+	;   %index%
+	label-active = %name%
+	label-active-foreground = ${color.foreground}
+	label-active-background = ${color.primary}
+	label-active-padding = 1
+
+	; Available tokens:
+	;   %name%
+	;   %icon%
+	;   %index%
+	label-occupied = %name%
+	label-occupied-foreground = ${color.foreground}
+	label-occupied-background = ${color.gray}
+	label-occupied-padding = 1
+
+	; Available tokens:
+	;   %name%
+	;   %icon%
+	;   %index%
+	label-urgent = %name%
+	label-urgent-foreground = ${color.foreground}
+	label-urgent-background = ${color.red}
+	label-urgent-padding = 1
+
+	; Available tokens:
+	;   %name%
+	;   %icon%
+	;   %index%
+	label-empty = %name%
+	label-empty-foreground = ${color.foreground}
+	label-empty-background = ${color.background-alt}
+	label-empty-padding = 1
