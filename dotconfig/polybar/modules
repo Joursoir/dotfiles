@@ -93,16 +93,13 @@
 
 [module/network]
 	type = internal/network
-	; Name of the network interface to display. You can get the names of the
-	; interfaces on your machine with `ip link`
-	interface = enp34s0
 
 	; If no interface is specified, polybar can detect an interface of the given type.
 	; If multiple are found, it will prefer running interfaces and otherwise just
 	; use the first one found.
 	; Either 'wired' or 'wireless'
 	; New in version 3.6.0
-	interface-type = wired
+	interface-type = ${env:NETWORK_TYPE:wired}
 
 	; Seconds to sleep between updates
 	interval = 1.0
