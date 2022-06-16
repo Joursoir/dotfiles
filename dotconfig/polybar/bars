@@ -15,10 +15,10 @@
 	;   <ramp-load>
 	;   <ramp-coreload>
 	format = <bar-load><label>
-	format-prefix = 
-	format-prefix-padding = 1
-	format-prefix-background = ${color.teal}
-	format-prefix-foreground = ${color.foreground}
+	format-suffix = 
+	format-suffix-padding = 1
+	format-suffix-background = ${color.teal}
+	format-suffix-foreground = ${color.foreground}
 	format-background = ${color.background-alt}
 	format-foreground = ${color.foreground}
 	format-overline = ${color.background}
@@ -64,10 +64,10 @@
 	;   <ramp-swap-used>
 	;   <ramp-swap-free>
 	format = <bar-used><label>
-	format-prefix = 
-	format-prefix-padding = 1
-	format-prefix-background = ${color.indigo}
-	format-prefix-foreground = ${color.foreground}
+	format-suffix = 
+	format-suffix-padding = 1
+	format-suffix-background = ${color.indigo}
+	format-suffix-foreground = ${color.foreground}
 	format-background = ${color.background-alt}
 	format-foreground = ${color.foreground}
 	format-overline = ${color.background}

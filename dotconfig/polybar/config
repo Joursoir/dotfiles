@@ -117,9 +117,9 @@ include-file = ~/.config/polybar/modules
 	font-1 = "waffle:size=10;3"
 
 	; Modules
-	modules-left = sep workspaces sep network
+	modules-left = sep workspaces sep network sep cpu_bar sep memory_bar
 	modules-center = title
-	modules-right = cpu_bar sep memory_bar sep keyboard sep pulseaudio sep date sep
+	modules-right = pulseaudio sep keyboard sep date sep
 
 [global/wm]
 	margin-top = 0
