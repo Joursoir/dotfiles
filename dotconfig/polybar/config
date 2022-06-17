@@ -119,7 +119,7 @@ include-file = ~/.config/polybar/modules
 	; Modules
 	modules-left = sep workspaces sep network sep cpu_bar sep memory_bar
 	modules-center = title
-	modules-right = pulseaudio sep keyboard sep date sep
+	modules-right = battery sep pulseaudio sep keyboard sep date sep
 
 [global/wm]
 	margin-top = 0
