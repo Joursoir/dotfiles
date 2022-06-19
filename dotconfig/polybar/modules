@@ -57,6 +57,55 @@
 	; Right click
 	click-right = pavucontrol
 
+[module/backlight]
+	type = internal/backlight
+
+	; xbacklight only works with Intel. Other drivers (e.g. Radeon) did not
+	; add support for the RandR backlight property.
+	;type = internal/xbacklight
+
+	; Use the following command to list available cards:
+	; $ ls -1 /sys/class/backlight/
+	card = amdgpu_bl0
+
+	; Use the `/sys/class/backlight/.../actual-brightness` file
+	; rather than the regular `brightness` file.
+	use-actual-brightness = true
+
+	; Enable changing the backlight with the scroll wheel
+	; NOTE: This may require additional configuration on some systems. Polybar will
+	; write to `/sys/class/backlight/${self.card}/brightness` which requires polybar
+	; to have write access to that file.
+	; DO NOT RUN POLYBAR AS ROOT. 
+	; The recommended way is to add the user to the
+	; `video` group and give that group write-privileges for the `brightness` file.
+	; See the ArchWiki for more information:
+	; https://wiki.archlinux.org/index.php/Backlight#ACPI
+	enable-scroll = true
+
+	; Available tags:
+	;   <label> (default)
+	;   <ramp>
+	;   <bar>
+	format = <ramp><label>
+	format-overline = ${color.background}
+	format-underline = ${color.background}
+
+	; Available tokens:
+	;   %percentage% (default)
+	label = %percentage%%
+	label-background = ${color.background-alt}
+	label-padding = 1
+
+	; Only applies if <ramp> is used
+	ramp-0 = 
+	ramp-1 = 
+	ramp-2 = 
+	ramp-3 = 
+	ramp-4 = 
+	ramp-background = ${color.lime}
+	ramp-padding = 1
+
 [module/battery]
 	type = internal/battery
 
