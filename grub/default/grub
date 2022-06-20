@@ -22,7 +22,8 @@ GRUB_TERMINAL_INPUT="console"
 GRUB_CMDLINE_LINUX=""
 
 # Arguments to add only to the default menu entry (recovery menu will remain unchanged) for the Linux kernel
-GRUB_CMDLINE_LINUX_DEFAULT="nomodeset quiet splash"
+# AMDGPU [https://wiki.archlinux.org/title/AMDGPU#Loading]: "Make sure you do not have *nomodeset* or *vga=* as a kernel parameter, since amdgpu requires KMS."
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
 
 # Enable the generation of recovery mode menu entries
 GRUB_DISABLE_RECOVERY=false
