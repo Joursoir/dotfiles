@@ -382,7 +382,7 @@
 	;   %index%
 	label-occupied = %name%
 	label-occupied-foreground = ${color.foreground}
-	label-occupied-background = ${color.gray}
+	label-occupied-background = ${color.background-alt}
 	label-occupied-padding = 1
 
 	; Available tokens:
