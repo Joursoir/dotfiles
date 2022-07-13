@@ -276,7 +276,7 @@
 	;   %upspeed%   [wireless+wired]
 	;   %downspeed% [wireless+wired]
 	;   %linkspeed% [wired]
-	label-connected = "%upspeed% | %downspeed% "
+	label-connected = "%upspeed% | %downspeed%"
 	label-connected-background = ${color.background-alt}
 	label-connected-padding = 1
 
