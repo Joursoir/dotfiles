@@ -11,5 +11,7 @@ NETWORK_TYPE="wired" # or `wireless`
 
 # Launch the bar
 echo "---" | tee -a /tmp/mypolybar.log
-NETWORK_TYPE=$NETWORK_TYPE polybar main >> /tmp/mypolybar.log 2>&1 & disown
+for m in $(polybar --list-monitors | cut -d":" -f1); do
+	MONITOR=$m NETWORK_TYPE=$NETWORK_TYPE polybar main >> /tmp/mypolybar.log 2>&1 & disown
+done
 echo "Bar launched..."
