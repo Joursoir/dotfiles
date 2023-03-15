@@ -22,3 +22,6 @@ alias fgrep="fgrep --colour=auto"
 
 # Always show human readable output for `df`
 alias df="df -h"
+
+alias lsmb="ls -l --block-size=MiB"
+alias lsgb="ls -l --block-size=GiB"
