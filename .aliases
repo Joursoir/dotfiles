@@ -25,3 +25,6 @@ alias df="df -h"
 
 alias lsmb="ls -l --block-size=MiB"
 alias lsgb="ls -l --block-size=GiB"
+
+# Always preload a math library, so the default _scale_ is set to 20
+alias bc="bc -l"
