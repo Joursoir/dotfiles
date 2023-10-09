@@ -19,6 +19,10 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Keyboard layout
 exec --no-startup-id "setxkbmap -layout us,ru -option grp:alt_shift_toggle"
 
+# Mate Polkit solves the problem when PolicyKit daemon sends error response to
+# polkit-agent-helper-1
+exec --no-startup-id "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
+
 # Key bindings for taking a screenshot
 bindsym --release Print exec "scregcp ~/Pictures/screenshots/" 
 bindsym --release $mod+Print exec "scregcp -s ~/Pictures/screenshots/" 
