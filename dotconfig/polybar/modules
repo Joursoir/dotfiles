@@ -276,7 +276,7 @@
 	;   %upspeed%   [wireless+wired]
 	;   %downspeed% [wireless+wired]
 	;   %linkspeed% [wired]
-	label-connected = "%upspeed% | %downspeed%"
+	label-connected = "%ifname% | %upspeed% | %downspeed%"
 	label-connected-background = ${color.background-alt}
 	label-connected-padding = 1
 
@@ -291,7 +291,7 @@
 
 	; Available tokens:
 	;   %ifname%    [wireless+wired]
-	label-disconnected = "Offline"
+	label-disconnected = "%ifname% | Offline"
 	label-disconnected-background = ${color.background-alt}
 	label-disconnected-padding = 1
 
