@@ -19,6 +19,12 @@ unset file
 # Add tab completion
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
+# Shortcut for markdown preview
+md() {
+	pandoc -f markdown -t html \
+		-o /tmp/md-preview.html "$1" && firefox /tmp/md-preview.html
+} 
+
 # Use gpg-agent like SSH agent (https://wiki.archlinux.org/title/GnuPG#SSH_agent)
 unset SSH_AGENT_PID
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
