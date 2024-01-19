@@ -24,6 +24,7 @@ Yo fellow, feel free to explore, adapt, and use any part of my dotconfig that yo
 - **dotconfig/i3**: Tiling window manager configuration.
 - **dotconfig/polybar**: Status bar configuration.
 - **scripts**: A directory containing helpful shell scripts for various tasks.
+- **fonts**: Non-standard fonts used by my setup that you probably won't be able to find in your disto repository.
 
 ## Installation / usage
 

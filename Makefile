@@ -1,7 +1,7 @@
 MOVE = mv -i
 COPY = cp -i
 
-.PHONY: nop bash grub i3 polybar
+.PHONY: nop bash grub i3 polybar fonts
 
 nop:
 	@echo "Please, look over Makefile before executing any targets."
@@ -28,3 +28,6 @@ i3:
 polybar:
 	$(MOVE) ~/.config/polybar/* ~/.config/polybar-old/.
 	$(COPY) -r dotconfig/polybar ~/.config/.
+
+fonts:
+	$(COPY) -r fonts ~/.local/share
