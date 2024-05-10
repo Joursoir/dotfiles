@@ -2,6 +2,10 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# Run `xrandr --listmonitors` to get a list of monitors
+set $monitor1 eDP
+set $monitor2 HDMI-A-0
+
 # Use 'Windows' key as modifier
 set $mod Mod4
 
@@ -103,6 +107,19 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+
+# Odd-even approach: Odd workspaces onto first monitor and even on the other.
+# If a second monitor isn't connected, then they will go on the first monitor.
+workspace $ws1 output $monitor1
+workspace $ws2 output $monitor2 $monitor1
+workspace $ws3 output $monitor1
+workspace $ws4 output $monitor2 $monitor1
+workspace $ws5 output $monitor1
+workspace $ws6 output $monitor2 $monitor1
+workspace $ws7 output $monitor1
+workspace $ws8 output $monitor2 $monitor1
+workspace $ws9 output $monitor1
+workspace $ws10 output $monitor2 $monitor1
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
