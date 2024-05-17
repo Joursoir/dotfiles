@@ -25,6 +25,7 @@ alias df="df -h"
 
 alias lsmb="ls -l --block-size=MiB"
 alias lsgb="ls -l --block-size=GiB"
+alias lsdir="du -sh *"
 
 # Hint: use "tarls/untar {filename} -v" to print more information, such as
 # ownership, filesize, timestamp, etc
