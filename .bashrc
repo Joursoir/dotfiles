@@ -8,7 +8,8 @@
 [[ $- != *i* ]] && return
 
 # Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 
 # Load the shell dotfiles
 for file in ~/.{aliases,bash_prompt}; do
