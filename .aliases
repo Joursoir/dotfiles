@@ -39,6 +39,8 @@ alias untar="tar -xf"
 # Always preload a math library, so the default _scale_ is set to 20
 alias bc="bc -l"
 
+alias pa-combine="pactl load-module module-combine-sink"
+
 alias xrandr-fix="xrandr --auto"
 alias xrandr-qhd="xrandr --output eDP --off --output HDMI-A-0 --mode 2560x1440"
 alias xrandr-double="xrandr --output eDP --mode 1920x1080 --left-of HDMI-A-0"
