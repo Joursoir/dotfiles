@@ -31,3 +31,4 @@ polybar:
 
 fonts:
 	$(COPY) -r fonts ~/.local/share
+	fc-cache -f -v
